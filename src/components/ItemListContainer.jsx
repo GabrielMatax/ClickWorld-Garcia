@@ -1,7 +1,11 @@
+import ItemCount from "./ItemCount";
+
 const ItemListContainer = (prop) => {
-    return ( 
-        <h2 className="d-flex aling-items-center justify-content-center">{prop.greeting}</h2>
-    );
+    const onAddItem = (count) => {
+        alert(`Se agregaron ${count} Items`);
+    };
+
+    return <ItemCount stock={10} inicial={1} onAdd={onAddItem}></ItemCount>;
 }
  
 export default ItemListContainer;
