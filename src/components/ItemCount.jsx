@@ -49,9 +49,6 @@ const ItemCount = ({ stock = 2, inicial = 0, onAdd }) => {
           Agregar!
         </button>
       </div>
-      <div className="d-flex justify-content-center">
-        
-      </div>
     </>
   );
 };
