@@ -1,56 +1,31 @@
-import { useState } from "react";
+import {useState } from "react";
 
-const ItemCount = ({ stock = 2, inicial = 0, onAdd }) => {
-  const [count, setCount] = useState(inicial);
-  const updateCount = (op) => {
-    if (op === "-" && count > 0) {
-      setCount(count - 1);
-    }
-    if (op === "+" && count < stock) {
-      setCount(count + 1);
-    }
-  };
-  const updateCountInput = (e) => {
-    const { value } = e.target;
-    if (value <= stock) {
-      setCount(isNaN(value) ? 0 : parseInt(value));
-    }
-  };
-  return (
-    <>
-      <div className="input-group input-spinner mb-3 d-flex justify-content-center">
-        <input
-          onChange={(e) => updateCountInput(e)}
-          className="border-primary"
-          placeholder=""
-          value={count}
-          type="number"
-        />
-        <button
-          onClick={() => updateCount("-")}
-          className="btn btn-icon btn-primary"
-          type="button"
-        >
-          -
-        </button>
-        <button
-          onClick={() => updateCount("+")}
-          className="btn btn-icon btn-primary"
-          type="button"
-        >
-          +
-        </button>
-        <button
-          onClick={() => onAdd(count)}
-          type="button"
-          className="btn btn-warning"
-          disabled={count === "" || count === 0}
-        >
-          Agregar!
-        </button>
-      </div>
-    </>
-  );
-};
 
+const ItemCount = ({stock, inicial}) => {
+     
+    const [contador, setContador] = useState (inicial)
+    const mas = () => {
+        if (contador<stock) {setContador (prev=>prev+1)} else {alert ("Lo lamentamos, no puedes agregar más unidades de este producto")}
+    }
+    const menos = () => {
+        if (contador>1 && stock>0) {setContador (prev=>prev-1)}
+    } 
+     
+    const onAdd= ()=>  {console.log ({contador}) ;
+      alert(`${contador} Agregados`);       
+    }
+
+    return (  <>
+        
+        <div style={{display:"flex", justifyContent:"space-between"}}>
+            <button onClick={menos} > - </button>
+            <>{contador}</>
+            <button onClick={mas}> + </button>
+        </div>
+        <button onClick={onAdd}> Agregar al carrito</button>
+        
+        </>
+    );
+}
+ 
 export default ItemCount;

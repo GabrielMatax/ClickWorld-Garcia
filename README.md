@@ -1,3 +1,11 @@
+En este proyecto voy a simular un e-commerce de mouses gamers, para la realizacion del mismo ulilice las siguientes librerias extra a la clase: Bootstrap y Font Awesome. Además de React y react-router-dom.
+
+En el inicio tenemos el catalogo (por ahora) asi como tambien en el apartado de Productos, luego tenemos los apartados de Informacion, Comunidad y Contacto (aún no desarrollados).
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
