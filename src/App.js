@@ -15,6 +15,7 @@ function App() {
               <Route path="/category/:name" element={<ItemListContainer/>}> </Route>
               <Route path="/item/:id" element={<ItemDetailContainer/>}> </Route>
               <Route path="*" element={<div>ERROR 404</div>}> </Route>
+              <Route path="/cart" element={<h1>pagina del carrito</h1>}> </Route>
        </Routes>
     </BrowserRouter>
     </>

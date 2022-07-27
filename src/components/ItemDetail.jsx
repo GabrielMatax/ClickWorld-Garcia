@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
 const ItemDetail= ({detalle}) => {
     
-return (
+  const [contador, setContador] = useState(0);
+  const onAdd = (contador) => {
+    setContador(contador);
+  };
+
+  return (
   <>
     <div className="container d-flex aling-items-center justify-content-center" style={{ marginTop: "100px" }}>
 
@@ -17,7 +24,8 @@ return (
           <p className="card-text">Stock: {detalle.stock}</p>
           <p className="card-text">Color: {detalle.color}</p>
           <p className="card-text">Descuento: {detalle.discount}%</p>
-          <ItemCount stock={detalle.stock} inicial={1} />
+          {contador == 0 ? <ItemCount stock={detalle.stock} inicial={1} onAdd={onAdd} /> : <h3>{contador} Agregados!</h3>}
+          <Link to="/cart/"><button style={{width: "100%", marginTop: "1rem"}}>Carrito</button></Link>
         </div>
       </div>
 
