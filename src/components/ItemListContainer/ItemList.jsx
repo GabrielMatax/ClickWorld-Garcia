@@ -1,12 +1,12 @@
 import Item from "./Item";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ productos }) => {
   return (
     <div className="container">
       <div className="row">
-        {items.map((item) => (
-          <div key={item.id} className="col-sm gap-5">
-            <Item item={item} />
+        {productos.map((producto) => (
+          <div key={producto.id} className="col-sm gap-5">
+            <Item item={producto} />
           </div>
         ))}
       </div>

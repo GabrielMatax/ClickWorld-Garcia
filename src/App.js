@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-import NavBar from './components/NavBar.jsx';
-import ItemListContainer from './components/ItemListContainer.jsx';
-import ItemDetailContainer from './components/ItemDetailContainer.jsx';
+import NavBar from './components/Navbar/NavBar.jsx';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartProvider from "./contexts/CartContext";
-import Cart from './components/Cart.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 function App() {
   return (
