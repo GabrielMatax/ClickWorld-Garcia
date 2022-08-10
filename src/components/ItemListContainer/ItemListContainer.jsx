@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import {getFirestore, collection, getDocs, query, where, limit, orderBy} from "firebase/firestore"
+import {getFirestore, collection, getDocs, query, where} from "firebase/firestore"
 
 const ItemListContainer=()=>{
   const {name}= useParams();
   const [productosEstado, setProductosEstado]= useState ([]);
   const [loading, setLoading] = useState(false);
 
-useEffect(()=>{
-  setLoading(true); 
-
   const db= getFirestore();
   const itemsCollection= collection(db, "items");
 
   const coleccionFiltrada= query(itemsCollection,
       where("categoria", "==", `${name}`))
+
+useEffect(()=>{
+  setLoading(true); 
       
   if (name) {
     getDocs(coleccionFiltrada).then((snapshot) => {

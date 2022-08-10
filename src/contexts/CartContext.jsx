@@ -1,3 +1,4 @@
+import { addDoc, collection, getFirestore, updateDoc, doc, writeBatch } from "firebase/firestore";
 import React, {createContext, useState} from "react";
 
 export const CartContext = createContext();
@@ -32,8 +33,21 @@ const CartProvider = ({children}) => {
         return cartItems.reduce ((prev,actual)=>prev+actual.quantity, 0)
     }
 
+    const sendOrder =(totalPrice, clientData)=>{
+        
+        const db = getFirestore();
+        const order= {
+            items: cartItems.map (item=> ({id:item.item.id, nombre:item.item.title, precio:item.item.price})),
+            total: totalPrice, 
+            cliente: clientData,
+            fecha: new Date(),
+           }
+        const orderCollection = collection(db, "orders");
+        addDoc(orderCollection, order).then (res=>alert (("Tu código de compra es: ")+ (res.id)))
+    }
+
     return (
-        <CartContext.Provider value={{cartItems, setCartItems, vaciarCarrito,vaciarItem, addItem, precioTotal,productosTotal}}>
+        <CartContext.Provider value={{cartItems, setCartItems, vaciarCarrito,vaciarItem, addItem, precioTotal,productosTotal,sendOrder}}>
            {children}
            </CartContext.Provider>
       );
