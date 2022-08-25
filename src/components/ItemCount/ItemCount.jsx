@@ -1,4 +1,5 @@
 import { useState } from "react";
+import swal from "sweetalert";
 
 const ItemCount = ({ stock, inicial, onAdd }) => {
   const [contador, setContador] = useState(inicial);
@@ -7,7 +8,12 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
     if (contador < stock) {
       setContador(prev => prev + 1);
     } else {
-      alert("Lo lamentamos, no puedes agregar más unidades de este producto");
+      swal (
+        {
+        title: "ERROR",
+        text:"No puedes agregar más unidades de este producto" ,
+        icon: "error",}
+    )
     }
   };
 
@@ -20,11 +26,11 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
   return (
     <>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <button onClick={menos}> - </button>
-        <>{contador}</>
-        <button onClick={mas}> + </button>
+        <button className="botonesCount" onClick={menos}> - </button>
+        <div className="botonesTexto">{contador}</div>
+        <button className="botonesCount" onClick={mas}> + </button>
       </div>
-      <button onClick={() => onAdd(contador)}> Agregar al carrito</button>
+      <button className="botones" onClick={() => onAdd(contador)}> Agregar al carrito</button>
     </>
   );
 };

@@ -1,5 +1,6 @@
-import { addDoc, collection, getFirestore, updateDoc, doc, writeBatch } from "firebase/firestore";
+import { addDoc, collection, getFirestore} from "firebase/firestore";
 import React, {createContext, useState} from "react";
+import swal from 'sweetalert';
 
 export const CartContext = createContext();
 
@@ -23,7 +24,7 @@ const CartProvider = ({children}) => {
     }
 
     const isInCart =(item)=>{
-        return cartItems.find ((elemento)=>elemento.item === item)
+        return cartItems.find ((elemento)=>elemento.item.id === item.id)
     }
 
     const precioTotal =() =>{
@@ -33,17 +34,23 @@ const CartProvider = ({children}) => {
         return cartItems.reduce ((prev,actual)=>prev+actual.quantity, 0)
     }
 
-    const sendOrder =(totalPrice, clientData)=>{
+    const sendOrder =(precioTotal, clientData)=>{
         
         const db = getFirestore();
         const order= {
             items: cartItems.map (item=> ({id:item.item.id, nombre:item.item.title, precio:item.item.price})),
-            total: totalPrice, 
+            total: precioTotal, 
             cliente: clientData,
             fecha: new Date(),
            }
         const orderCollection = collection(db, "orders");
-        addDoc(orderCollection, order).then (res=>alert (("Tu código de compra es: ")+ (res.id)))
+        addDoc(orderCollection, order).then (res=>
+            swal (
+                {
+                title: "COMPRA COMPLETADA!",
+                text: "TU ORDEN DE COMPRA ES: \n"+ (res.id),
+                icon: "success",}
+            ))
     }
 
     return (

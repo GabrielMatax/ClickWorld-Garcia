@@ -10,8 +10,8 @@ const NavBar = () => {
                 
                 <ul className="navbar-nav">
                     <Link to={"/"} className="nav-link text-light px-5" href="#"><li>PRODUCTOS</li></Link>
-                    <Link to={"/category/Mouse"} className="nav-link text-light px-5" href="#"><li>MOUSES</li></Link>
-                    <Link to={"/category/MousePad"} className="nav-link text-light px-5" href="#"><li>MOUSEPADS</li></Link>
+                    <Link to={"/category/Cable"} className="nav-link text-light px-5" href="#"><li>CABLEADOS</li></Link>
+                    <Link to={"/category/Inalambrico"} className="nav-link text-light px-5" href="#"><li>INALAMBRICOS</li></Link>
                     <Link to={"/category/contacto"} className="nav-link text-light px-5" href="#"><li>CONTACTO</li></Link>
                     <CartWidget/>
                 </ul>

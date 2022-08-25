@@ -1,0 +1,103 @@
+.botones{
+    background-color: rgb(54, 99, 221);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    transition: 300ms;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+.botones:hover{
+    background-color: rgb(83, 188, 220);
+    transform: scale(1.03);
+}
+.botonesTexto{
+    text-decoration: none;
+    font-size: 25px; 
+}
+.botonesCount{
+    background-color: rgb(229, 217, 240);
+    color: black;
+    padding: 6px 12px;
+    transition: 200ms;
+    margin-bottom: 2px;
+}
+.botonesCount:hover{
+    background-color: rgb(83, 188, 220);
+    transform: scale(1.03);
+}
+
+            /*Items*/
+
+.items{
+    width: 20rem;
+    Height: 900px;
+    align-items:center;
+    justify-items: center;
+}
+.textos{
+    text-decoration: none;
+    font-size: 30px; 
+    font-family: 'Teko', sans-serif;;
+}
+
+           /*Cart*/
+.cartDiv {
+    
+    text-align: center;
+    margin:4rem;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(126, 70, 116);
+    border-radius: 4px;
+    padding: 3rem;
+}
+
+.cartInfo{
+    border-bottom: solid 1px;
+    padding-bottom: 2rem;
+    margin-bottom:2rem;
+}
+.botonRojo{
+    background-color: rgb(244, 22, 22);
+    outline: none;
+    border: 1 solid;
+    border-radius: 5px;
+    padding: 6px 12px;
+    transition: 300ms;
+    color: white;
+    font-size: 20px;
+    margin: 1px;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+.botonRojo:hover{
+    background-color: rgb(228, 72, 72);
+    transform: scale(1.03);
+}
+.botonesCart{
+    background-color: rgb(54, 99, 221);
+    outline: none;
+    border: 1 solid;
+    border-radius: 5px;
+    padding: 6px 12px;
+    margin: 1px;
+    transition: 300ms;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+.botonesCart:hover{
+    background-color:rgb(83, 188, 220);
+    transform: scale(1.03);
+}

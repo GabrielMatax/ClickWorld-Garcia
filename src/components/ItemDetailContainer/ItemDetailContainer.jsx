@@ -3,6 +3,7 @@ import ItemDetail from  './ItemDetail';
 import {useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import {getDoc, doc, getFirestore} from "firebase/firestore"
+import "../../Main.css"
 
 const ItemDetailContainer=()=>{
     const [loading, setLoading] = useState(false);
